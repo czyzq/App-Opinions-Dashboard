@@ -9,7 +9,6 @@
     <link href="styles/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/favicon.ico"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script-->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </head>
@@ -32,8 +31,6 @@
 <div class="buttons">
     <button id="sign-in-or-out-button">Sign In/Authorize</button>
     <button id="revoke-access-button">Revoke access</button>
-    <!--button is="google-cast-button" id="castme"
-            style="height: 2%; width: 2%;display: inline-block; visibility: visible; "></button-->
     <button type="button" id="castme">Click To Cast</button>
 </div>
 <hr style="size: 2px;  margin: 0 0.5rem">
@@ -64,7 +61,6 @@
         </div>
 
     </div>
-    <!--div id="piechart"></div-->
 
 </div>
 
@@ -97,7 +93,6 @@
     var revTimeArray = [];      //przechowuje dokładne czasy napisania recenzji
     var ratingsArray = [];      //przechowuje oceny
 
-    /**przeniesienie skryptu*/
     let clientLoaded = false;
     function handleClientLoad() {
         if (!clientLoaded &&
@@ -112,5 +107,6 @@
 <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script></body>
+</script>
+</body>
 </html>
