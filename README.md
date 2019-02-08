@@ -3,8 +3,8 @@ My internship project of Google Play Dashboard which shows last opinions and oth
 Useful for Android apps development as users opinons are still important source of knowledge about your App. 
 Cast page on TV using Chrome chromecast extension and watch new opinions & other stats.
 
-![photo](./ss00.jpg)
+![login screen](./ss00.png)
 
-![photo](./ss0.jpg)
+![working app](./ss0.png)
 
-![photo](./ss1.jpg)
+![hidden options](./ss1.png)
