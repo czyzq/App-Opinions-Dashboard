@@ -1,0 +1,307 @@
+* {
+    box-sizing: border-box
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.4;
+    font-size: 13px;
+    color: #666;
+    background: #F6F6F6;
+    max-height: 1080px;
+}
+
+#root {
+    max-width: 1920px;
+    max-height: 1080px;
+    margin: 0 auto;
+}
+strong {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+h1 {
+    padding: 0rem 2rem 0rem;
+    text-align: center;
+    text-shadow: 2px 2px #ffffff;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-size: 4rem;
+}
+
+h2 {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    text-align: right;
+    font-size: 2rem;
+}
+h3 {
+    padding: 0.1rem 0.5rem 0.1rem;
+    background-color: #8a8a8a;
+    color: black;
+    font-size: 1rem;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+h5 {
+    padding: 0.1rem 0.5rem 0.1rem;
+    background-color: #74ad20;
+    color: black;
+    display: inline-block;
+    align-self:flex-start;
+    width: 100%;
+    font-size: 1rem;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+
+h5.red {
+    background-color: #f55234;
+}
+
+h5.yellow {
+    background-color: #ffd20c;
+}
+
+section {
+    background-color: #d7efbd;
+    padding: 0.1rem 0.3rem 0.1rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+section.sectionRed{
+    background-color: #f7ab9b;
+}
+
+section.sectionYellow{
+    background-color: #ffeea4;
+}
+
+body {
+    display: block;
+    margin: 0px 5px 0px;
+    max-height: 1080px;
+}
+
+p {
+    padding: 0.3rem 0.4rem 0.3rem;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+dl.inline {
+    display: inline-block;
+    width: 49%;
+    line-height: 0.9;
+    -webkit-margin-before: 0rem;
+    -webkit-margin-after: 0rem;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    flex-wrap: wrap;
+}
+dl.inline dd {
+    font-size: 0.75rem;
+    color: #000;
+    display: inline;
+    margin: 0rem;
+    flex-wrap: wrap;
+}
+dl.inline dd:after {
+    font-size: 0.75rem;
+    color: #000;
+    display: block;
+    content: '';
+    flex-wrap: wrap;
+}
+
+dl.inline dt {
+    font-size: 0.75rem;
+    font-weight: bolder;
+    color: #242424;
+    display: inline-block;
+    min-width: 57px;
+    flex-wrap: wrap;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.reviews {
+    width: 80%;
+    margin: 0rem 0rem 0rem 0.6rem;
+    display: inline-block;
+    float: left;
+}
+
+.rightSection {
+    width: 19%;
+    display: inline-block;
+    float: right;
+}
+
+.lastOpinions{
+    max-height: 225px;
+    overflow: hidden;
+}
+
+.title {
+    display: inline-block;
+}
+.rating {
+    padding: 0.3rem 0.5rem 0.2rem 1rem;
+    display: inline-block;
+}
+
+.opinion {
+    min-height: 165px;
+    height: 100%;
+    width: 100%;
+}
+
+.opinionText {
+    width: 100%;
+}
+
+.devText {
+
+    width: 100%;
+}
+
+.card {
+    border-radius: 6px;
+    display: inline-block;
+    width: 31%;
+    align-items: stretch;
+    margin: 0.75rem;
+    background: white;
+    box-shadow: 2px 4px 20px rgba(0, 0, 0, .2);
+}
+
+.card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+}
+
+.buttons {
+    opacity:0;
+    padding: 0 0.5rem;
+    transition: all ease 0.7s;
+}
+.buttons:hover{
+    opacity: 1;
+}
+
+.checked {
+    color: orange;
+}
+
+.weekly {
+    text-align: left;
+}
+.daily {
+    text-align: left;
+}
+.worst {
+    text-align: left;
+}
+
+.alerted {
+    text-align: center;
+    color: #ff0000;
+}
+
+@-webkit-keyframes animatedAlert {
+    0% { background-color: #ffcec2; }
+    50% { background-color: #ffcec2; }
+    51% { background-color: #ff9b8c; }
+    100% { background-color: #ff9b8c; }
+}
+
+@-webkit-keyframes animatedAlert {
+    0% { background-color: #ffcec2; }
+    50% { background-color: #ff9b8c; }
+    100% { background-color: #ffcec2; }
+}
+
+.alert {
+    border-style: double;
+    margin-top: 0.2rem;
+    border-color: darkred;
+    border-radius: 6px;
+    display: inline-block;
+    vertical-align: top;
+    visibility: hidden;
+    background-color: #ffa390;
+    -webkit-animation-name: animatedAlert;
+    /* -webkit-animation-name: blackWhiteFade; */
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 2s;
+}
+
+/* Three column layout */
+.side {
+    float: left;
+    width: 15%;
+    margin-top:10px;
+}
+
+.middle {
+    margin-top:10px;
+    float: left;
+    width: 70%;
+}
+
+/* Place text to the right */
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The bar container */
+.barContainer {
+    width: 100%;
+    background-color: #cacaca;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+.barFill {height: 18px; background-color: #74ad20;}
+.bar-4 {width: 30%; height: 18px; background-color: #74ad20;}
+
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+    .side, .middle {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+}

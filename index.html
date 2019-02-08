@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Komentator</title>
+    <meta name="google-site-verification" content="-c7oYjJe_enDu4F2gQTN5A8r-zLr-ZECxJpzpTPLJ0w"/>
+    <meta charset="utf-8"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+</head>
+
+<div class="header" style="text-align: center">
+    <img src="images/logo.png" alt="logo" style="text-align: left">
+    <div class="title">
+        <h1>Komentator</h1>
+        <p id="auth-status" style="display: inline; padding:0rem 2rem 0rem">powered by Google Play Dev API</p>
+    </div>
+
+    <div class="alert">
+        <h2 style="text-align: center; color:darkred">Uwaga!</h2>
+        <p class="alerted"></p>
+    </div>
+
+
+</div>
+
+<div class="buttons">
+    <button id="sign-in-or-out-button">Sign In/Authorize</button>
+    <button id="revoke-access-button">Revoke access</button>
+    <!--button is="google-cast-button" id="castme"
+            style="height: 2%; width: 2%;display: inline-block; visibility: visible; "></button-->
+    <button type="button" id="castme">Click To Cast</button>
+</div>
+<hr style="size: 2px;  margin: 0 0.5rem">
+
+<div class="reviews">
+    <h2 class="reviewsTitle" style="text-align: left; padding: 0.3rem 2rem; visibility: hidden"></h2>
+    <div class="opinions" id="opinions"></div>
+</div>
+
+<div class="rightSection">
+    <div class="rating">
+        <!--marquee behavior="scroll" direction="up" scrollamount="2.5" id="text-file-container"></marquee-->
+        <h2 id="stats" style="text-align: left; visibility: hidden">Statystyki</h2>
+        <div class="testo" style="margin: 0 0 0 0"></div>
+        <div class="today" style="margin: 0 0 0 0"></div>
+        <p class="good"></p>
+        <p class="bad"></p>
+        <p class="daily"></p>
+        <div class="week" style="margin: 0 0 0 0"></div>
+        <div class="row"></div>
+        <br/>
+        <p class="weekly"></p>
+        <p class="worst"></p>
+        <div class="lastReviews" style="margin: 0 0 0 0"></div>
+        <div class="lastOpinions">
+            <p class="lastGood"></p>
+            <p class="lastBad"></p>
+        </div>
+
+    </div>
+    <!--div id="piechart"></div-->
+
+</div>
+
+<!--/div-->
+<script defer charset="utf-8" src="scripts/main.js"></script>
+<script defer charset="utf-8">
+    /**Poniżej zmienne zawierjące dane potrzebne do autoryzacji i korzystania z API*/
+    const CLIENT_ID = 'paste_your_CIENT_ID_here';   //<-changeHere
+    const API_KEY = 'paste_your_API_KEY_here';      //<-changeHere
+    const SCOPE = "https://www.googleapis.com/auth/androidpublisher";
+    const PACKAGE = "com.example.package";
+    var GoogleAuth;                           //zmienna odpowieialna za autoryzację poprez OAuth2
+
+    /**Stałe konfigurowalne dotyczące wyświetlania opinii*/
+    const Y = 5;        //liczba krytyczna złych komentarzy danego dnia
+    const initialPull = 99;                     //max liczba pobiernych do listy komentarzy po starcie storny
+    const nextPulls = 10;                       //max liczba pobieranych do listy komentarzy co INTERVAL ms po starcie
+    const X = 36;                               //tyle komentarzy będzie prezentownych (ostatnie X z wszystkich)
+    const DISPLAYED = 9;                        //opini wyswietlanych na raz
+    const INTERVAL = 45000;                     //co tyle ms zmiana opinii wyswietlanych
+    var REFRESH;                                //co tyle ms ladowanie (nextPulls) nowych opinii
+    if(X%DISPLAYED===0)                         //jeśli nie podzielne przez DISPLAYED to potreba czasu na wyświetlenie o jeden więcej storny
+        REFRESH = (X / DISPLAYED) * INTERVAL - 2000;
+    else
+        REFRESH = (X / DISPLAYED + 1) * INTERVAL - 2000;
+    var counter,counter2;       //potrzebne do resetowania pętli czasowych
+    var bigArray = [];          //przechowuje wszystkie opinie w formacie json
+    var reviewsArray = [];      //przechowuje opinie w formie gootowych obiektów HTML
+    //reviewsArray.shift();
+    var revTimeArray = [];      //przechowuje dokładne czasy napisania recenzji
+    var ratingsArray = [];      //przechowuje oceny
+
+    /**przeniesienie skryptu*/
+    let clientLoaded = false;
+    function handleClientLoad() {
+        if (!clientLoaded &&
+            typeof mainScriptLoad !== "undefined" &&
+            typeof gapi !== "undefined") {
+            clientLoaded = true;
+            mainScriptLoad();
+        }
+    }
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script></body>
+</html>
